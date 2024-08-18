@@ -7,9 +7,14 @@ export const createESLint = (config) =>
 		overrideConfig: config
 	})
 
-export const getRulesFromPlugins = (plugins) =>
+export const getAvailableCoreRules = () => builtinRules
+
+export const getConfiguredCoreRules = (config) =>
+	new Map(Object.entries(config.rules).filter(([key]) => !key.includes('/')))
+
+export const getAvailablePluginRules = (config) =>
 	new Map(
-		Object.entries(plugins).reduce(
+		Object.entries(config.plugins).reduce(
 			(acc, [prefix, plugin]) =>
 				acc.concat(
 					Object.entries(plugin.rules).map(([name, rule]) => [
@@ -21,7 +26,25 @@ export const getRulesFromPlugins = (plugins) =>
 		)
 	)
 
-export const getRulesFromESLint = () => builtinRules
+export const getConfiguredPluginRules = (config) => {
+	const prefixes = Object.keys(config.plugins)
+	const entries = Object.entries(config.rules).filter(([key]) =>
+		prefixes.some((prefix) => key.startsWith(prefix))
+	)
 
-export const getRulesFromConfig = (config) =>
-	new Map(Object.entries(config.rules))
+	return new Map(entries)
+}
+
+export const isLayoutRule = (rule) => rule.meta.type === 'layout'
+
+export const isDeprecatedRule = (rule) =>
+	rule.meta.deprecated
+
+export const isExtensionRule = (rule) => {
+	// Typescript eslint extension rule
+	if (rule.meta.docs.extendsBaseRule) {
+		return true
+	}
+
+	return false
+}

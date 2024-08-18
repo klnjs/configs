@@ -1,27 +1,30 @@
 import { test, expect } from 'bun:test'
 import {
 	createESLint,
-	getRulesFromConfig,
-	getRulesFromPlugins
+	getAvailablePluginRules,
+	getConfiguredPluginRules,
+	isLayoutRule,
+	isDeprecatedRule
 } from '../helpers/eslint.js'
-import react from '../../src/react.js'
+import config from '../../src/react.js'
 
-const rulesFromConfig = getRulesFromConfig(react)
-const rulesFromPlugin = getRulesFromPlugins(react.plugins)
+const availablePluginRules = getAvailablePluginRules(config)
+const configuredPluginRules = getConfiguredPluginRules(config)
 
 test('Config should load', () => {
-	expect(() => createESLint(react).lintText('')).not.toThrow()
+	expect(() => createESLint(config).lintText('')).not.toThrow()
 })
 
-test('Config should include code rules', () =>
-	rulesFromPlugin.forEach((rule, name) => {
-		if (!rule.meta.deprecated && rule.meta.type !== 'layout') {
-			expect(rulesFromConfig).toHaveEntry(name)
+test('Config should include required rules', () =>
+	availablePluginRules.forEach((rule, name) => {
+		if (!isDeprecatedRule(rule) && !isLayoutRule(rule)) {
+			expect(configuredPluginRules).toHaveEntry(name)
 		}
 	}))
 
-test('Config should exclude layout, unknown and deprecated rules', () =>
-	rulesFromConfig.forEach((_value, name) => {
-		expect(rulesFromPlugin).toHaveEntry(name)
-		expect(rulesFromPlugin.get(name)).not.toBeDeprecatedRule(name)
+test('Config should exclude layout and deprecated rules', () =>
+	configuredPluginRules.forEach((_value, name) => {
+		expect(availablePluginRules).toHaveEntry(name)
+		expect(availablePluginRules.get(name)).not.toBeLayoutRule(name)
+		expect(availablePluginRules.get(name)).not.toBeDeprecatedRule(name)
 	}))
