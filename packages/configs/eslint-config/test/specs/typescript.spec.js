@@ -8,7 +8,7 @@ import {
 	getConfiguredPluginRules,
 	isLayoutRule,
 	isExtensionRule,
-	isDeprecatedRule,
+	isDeprecatedRule
 } from '../helpers/eslint.js'
 import config from '../../src/typescript.js'
 
