@@ -85,6 +85,7 @@ export default {
 		'react/jsx-one-expression-per-line': 'off',
 		'react/jsx-pascal-case': ['error', { allowAllCaps: true, ignore: [] }],
 		'react/jsx-props-no-multi-spaces': 'off',
+		'react/jsx-props-no-spread-multi': 'error',
 		'react/jsx-props-no-spreading': 'off',
 		'react/jsx-sort-props': 'off',
 		'react/jsx-tag-spacing': 'off',
