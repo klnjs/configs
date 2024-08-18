@@ -2,24 +2,29 @@ import { test, expect } from 'bun:test'
 import typescriptPlugin from '@typescript-eslint/eslint-plugin'
 import {
 	createESLint,
-	getRulesFromESLint,
-	getRulesFromConfig,
-	getRulesFromPlugins
+	getAvailableCoreRules,
+	getAvailablePluginRules,
+	getConfiguredCoreRules,
+	getConfiguredPluginRules,
+	isLayoutRule,
+	isExtensionRule,
+	isDeprecatedRule
 } from '../helpers/eslint.js'
-import typescript from '../../src/typescript.js'
+import config from '../../src/typescript.js'
 
-const rulesFromESLint = getRulesFromESLint()
-const rulesFromConfig = getRulesFromConfig(typescript)
-const rulesFromPlugin = getRulesFromPlugins(typescript.plugins)
+const availableCoreRules = getAvailableCoreRules()
+const availablePluginRules = getAvailablePluginRules(config)
+const configuredCoreRules = getConfiguredCoreRules(config)
+const configuredPluginRules = getConfiguredPluginRules(config)
 
 test('Config should load', () => {
-	expect(() => createESLint(typescript).lintText('')).not.toThrow()
+	expect(() => createESLint(config).lintText('')).not.toThrow()
 })
 
-test('Config should include code rules', () =>
-	rulesFromPlugin.forEach((rule, name) => {
-		if (!rule.meta.deprecated && rule.meta.type !== 'layout') {
-			expect(rulesFromConfig).toHaveEntry(name)
+test('Config should include required rules', () =>
+	availablePluginRules.forEach((rule, name) => {
+		if (!isDeprecatedRule(rule) && !isLayoutRule(rule)) {
+			expect(configuredPluginRules).toHaveEntry(name)
 		}
 	}))
 
@@ -44,19 +49,15 @@ test('Config should include obsolete core rules and turn them off', () =>
 		'valid-typeof',
 		...Object.entries(typescriptPlugin.rules).reduce(
 			(acc, [name, rule]) => {
-				if (
-					rule.meta.deprecated ||
-					rule.meta.type === 'layout' ||
-					!rule.meta.docs.extendsBaseRule
-				) {
+				if (!isExtensionRule(rule) || !isDeprecatedRule(rule)) {
 					return acc
 				}
 
 				const base = rule.meta.docs.extendsBaseRule
 				const baseName = base === true ? name : base
-				const baseRule = rulesFromESLint.get(baseName)
+				const baseRule = availableCoreRules.get(baseName)
 
-				if (baseRule.meta.deprecated) {
+				if (!isDeprecatedRule(baseRule)) {
 					return acc
 				}
 
@@ -67,13 +68,12 @@ test('Config should include obsolete core rules and turn them off', () =>
 			[]
 		)
 	].forEach((name) => {
-		expect(rulesFromConfig).toHaveEntry(name, 'off')
+		expect(configuredCoreRules).toHaveEntry(name, 'off')
 	}))
 
-test('Config should exclude layout, unknown and deprecated rules', () =>
-	rulesFromConfig.forEach((_value, name) => {
-		if (name.startsWith('@typescript-eslint/')) {
-			expect(rulesFromPlugin).toHaveEntry(name)
-			expect(rulesFromPlugin.get(name)).not.toBeDeprecatedRule(name)
-		}
+test('Config should exclude layout and deprecated rules', () =>
+	configuredPluginRules.forEach((_value, name) => {
+		expect(availablePluginRules).toHaveEntry(name)
+		expect(availablePluginRules.get(name)).not.toBeLayoutRule(name)
+		expect(availablePluginRules.get(name)).not.toBeDeprecatedRule(name)
 	}))
