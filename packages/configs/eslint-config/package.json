@@ -2,7 +2,7 @@
 	"name": "@klnjs/eslint-config",
 	"type": "module",
 	"author": "Rune Klein (@rnkln)",
-	"version": "3.0.4",
+	"version": "3.0.5",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
@@ -15,6 +15,7 @@
 		"./core": "./src/core.js",
 		"./ignores": "./src/ignores.js",
 		"./react": "./src/react.js",
+		"./svelte": "./src/svelte.js",
 		"./typescript": "./src/typescript.js"
 	},
 	"scripts": {
