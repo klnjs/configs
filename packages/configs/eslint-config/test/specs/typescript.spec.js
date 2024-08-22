@@ -71,7 +71,7 @@ test('Config should include obsolete core rules and turn them off', () =>
 		expect(configuredCoreRules).toHaveEntry(name, 'off')
 	}))
 
-test('Config should exclude layout and deprecated rules', () =>
+test('Config should exclude unknown, layout and deprecated rules', () =>
 	configuredPluginRules.forEach((_value, name) => {
 		expect(availablePluginRules).toHaveEntry(name)
 		expect(availablePluginRules.get(name)).not.toBeLayoutRule(name)

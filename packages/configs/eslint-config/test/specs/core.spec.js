@@ -22,7 +22,7 @@ test('Config should include required rules', () =>
 		}
 	}))
 
-test('Config should exclude layout and deprecated rules', () =>
+test('Config should exclude unknown, layout and deprecated rules', () =>
 	configuredCoreRules.forEach((_value, name) => {
 		expect(availableCoreRules).toHaveEntry(name)
 		expect(availableCoreRules.get(name)).not.toBeLayoutRule(name)
