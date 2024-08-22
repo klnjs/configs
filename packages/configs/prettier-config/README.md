@@ -28,13 +28,16 @@ You can use it by referencing it in your `package.json` file:
 }
 ```
 
-None of the above methods allow for extending the configuration. To overwrite specific properties, import the configuration into a `prettier.config.js` file, in the root of your project, and export the modifications:
+None of the above methods allow for extending the configuration. To overwrite specific properties or use multiple configs, import the configuration into a `prettier.config.js` file, in the root of your project, and export the modifications:
 
 ```js
-import { core } from '@klnjs/prettier-config'
+import core from '@klnjs/prettier-config/core'
+import svelte from '@klnjs/prettier-config/svelte'
 
 export default {
 	...core,
+	...svelte,
+	plugins: [...core.plugins, ...svelte.plugins],
 	semi: true
 }
 ```

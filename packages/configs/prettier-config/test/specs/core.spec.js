@@ -1,36 +1,29 @@
 import { test, expect } from 'bun:test'
 import prettier from 'prettier'
-import core from '../../src/core.js'
+import { isDeprecatedOption, isSpecialOption } from '../helpers/prettier.js'
+import config from '../../src/core.js'
 
-const { options } = await prettier.getSupportInfo({ showDeprecated: true })
-const excludeByName = ['parser', 'plugins', 'pluginSearchDirs']
-const excludeByCategory = ['Special', 'HTML']
-const optionsToCheck = options.reduce((acc, opt) => {
-	if (
-		!excludeByName.includes(opt.name) &&
-		!excludeByCategory.includes(opt.category)
-	) {
-		acc.set(opt.name, opt)
-	}
-
-	return acc
-}, new Map())
+const support = await prettier.getSupportInfo({ showDeprecated: true })
+const options = new Map(
+	Object.values(support.options).map((option) => [option.name, option])
+)
 
 test('Config should load', () => {
 	expect(() =>
-		prettier.format('', { parser: 'espree', ...core })
+		prettier.format('', { filepath: 'file.js', ...config })
 	).not.toThrow()
 })
 
-test('Config should include code options', () =>
-	optionsToCheck.forEach((option, name) => {
-		if (!option.deprecated) {
-			expect(core).toHaveProperty(name)
+test('Config should include required options', () =>
+	options.forEach((option) => {
+		if (!isSpecialOption(option) && !isDeprecatedOption(option)) {
+			expect(config).toHaveProperty(option.name)
 		}
 	}))
 
-test('Config should exclude unknown and deprecated options', () =>
-	Object.keys(core).forEach((name) => {
-		expect(optionsToCheck.get(name)).toBeDefined()
-		expect(optionsToCheck.get(name)).not.toHaveProperty('deprecated')
+test('Config should exclude unknown, global, special and deprecated options', () =>
+	Object.keys(config).forEach((name) => {
+		expect(options.get(name)).toBeDefined()
+		expect(options.get(name)).not.toBeSpecialOption()
+		expect(options.get(name)).not.toBeDeprecatedOption()
 	}))
