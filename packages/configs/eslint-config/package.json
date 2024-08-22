@@ -15,6 +15,7 @@
 		"./core": "./src/core.js",
 		"./ignores": "./src/ignores.js",
 		"./react": "./src/react.js",
+		"./svelte": "./src/svelte.js",
 		"./typescript": "./src/typescript.js"
 	},
 	"scripts": {
