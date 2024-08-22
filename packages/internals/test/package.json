@@ -1,0 +1,20 @@
+{
+	"name": "@klnjs/configs-internals-test",
+	"type": "module",
+	"author": "Rune Klein (@rnkln)",
+	"version": "0.0.1",
+	"license": "MIT",
+	"private": true,
+	"files": ["src/**/*", "LICENSE", "README.md"],
+	"exports": {
+		"./matchers": "./src/matchers.js",
+		"./printers": "./src/printers.js"
+	},
+	"scripts": {
+		"lint": "biome lint --error-on-warnings .",
+		"format": "biome format --error-on-warnings ."
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.8.3"
+	}
+}

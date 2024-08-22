@@ -22,7 +22,7 @@ test('Config should include required rules', () =>
 		}
 	}))
 
-test('Config should exclude layout and deprecated rules', () =>
+test('Config should exclude unknown, layout and deprecated rules', () =>
 	configuredPluginRules.forEach((_value, name) => {
 		expect(availablePluginRules).toHaveEntry(name)
 		expect(availablePluginRules.get(name)).not.toBeLayoutRule(name)

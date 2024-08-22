@@ -1,0 +1,15 @@
+# Ignore everything
+*
+
+# Except these folders
+!src/
+!src/**/*
+!test/
+!test/**/*
+
+# Except these files
+!.gitignore
+!biome.json
+!index.js
+!package.json
+!README.md
