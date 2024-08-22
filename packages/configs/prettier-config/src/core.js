@@ -5,14 +5,18 @@ export default {
 	embeddedLanguageFormatting: 'auto',
 	endOfLine: 'lf',
 	experimentalTernaries: false,
+	htmlWhitespaceSensitivity: 'css',
+	insertPragma: false,
 	jsxSingleQuote: false,
 	printWidth: 80,
 	proseWrap: 'preserve',
 	quoteProps: 'as-needed',
+	requirePragma: false,
 	semi: false,
 	singleAttributePerLine: false,
 	singleQuote: true,
 	tabWidth: 4,
 	trailingComma: 'none',
-	useTabs: true
+	useTabs: true,
+	vueIndentScriptAndStyle: true
 }

@@ -2,7 +2,7 @@
 	"name": "@klnjs/prettier-config",
 	"type": "module",
 	"author": "Rune Klein (@rnkln)",
-	"version": "3.0.4",
+	"version": "3.1.0",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
@@ -15,13 +15,15 @@
 		"./core": "./src/core.js"
 	},
 	"scripts": {
-		"test": "bun test",
+		"test": "bun test --preload ./test/helpers/setup.js",
 		"lint": "biome lint --error-on-warnings .",
 		"format": "biome format --error-on-warnings ."
 	},
 	"devDependencies": {
+		"@klnjs/configs-internals-test": "workspace:*",
 		"@biomejs/biome": "1.8.3",
-		"prettier": "3.3.3"
+		"prettier": "3.3.3",
+		"prettier-plugin-svelte": "3.2.6"
 	},
 	"peerDependencies": {
 		"prettier": "^3.0.0"
