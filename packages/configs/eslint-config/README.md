@@ -14,29 +14,32 @@ npm install @klnjs/eslint-config --save-dev
 
 ## How to Use
 
-To use a specific tsconfig from `@klnjs/eslint-config`, simply add it in your project's `eslint.config.js` file.
+To use a specific config from `@klnjs/eslint-config`, simply add it in your project's `eslint.config.js` file.
 
 ```js
-import { core } from '../eslint-config/index.js'
+import core from '@klnjs/eslint-config/core'
 
 export default [core]
 ```
 
-If you're using the TypeScript configuration, it will turn off many of ESLint's built-in rules that TypeScript checks more thoroughly. Always make sure the TypeScript config comes after the core config or any other base ESLint configs.
+If you're using mutliple configurations, many configs provide extension rules that checks more thoroughly and therefore disables ESLint's built-in rule. Always make sure the extended configs are included after the core config or any other base ESLint configs.
 
 ```js
-import { core, typescript } from '../eslint-config/index.js'
+import core from '@klnjs/eslint-config/core'
+import react from '@klnjs/eslint-config/react'
+import svelte from '@klnjs/eslint-config/svelte'
+import typescript from '@klnjs/eslint-config/typescript'
 
-export default [core, typescript]
+export default [core, react, svelte, typescript]
 ```
 
-These configurations only support file types: `js`, `jsx`, `ts`, and `tsx`. If you want to include other file types such as `cjs` or `mjs`, you'll need to add them yourself by adjusting the 'files' property in the configurations.
+Configurations only support the expected file types, if you want to include custom file types eg. `.mtsx`, you'll need to add them yourself by adjusting the 'files' property in the configurations.
 
 They also don't assume specific environments, so they don't set up `languageOptions.globals`. In most cases, you'll likely need to configure some properties yourself.
 
 ```js
+import core from '@klnjs/eslint-config/core'
 import { serviceworker, browser } from 'globals'
-import { core } from '../eslint-config/index.js'
 
 export default [
 	{
