@@ -24,7 +24,7 @@
 		"format": "biome format --error-on-warnings ."
 	},
 	"dependencies": {
-		"eslint-plugin-react-compiler": "0.0.0-experimental-8e3b87c-20240822",
+		"eslint-plugin-react-compiler": "0.0.0-experimental-72f06b2-20240822",
 		"eslint-plugin-react-hooks": "4.6.2",
 		"eslint-plugin-react": "7.35.0",
 		"eslint-plugin-svelte": "2.43.0",
