@@ -10,6 +10,6 @@ export default {
 		'coverage',
 		'dist',
 		'node_modules',
-		'node',
+		'node'
 	]
 }
