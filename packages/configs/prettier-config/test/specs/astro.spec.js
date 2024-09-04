@@ -4,10 +4,7 @@ import { options } from 'prettier-plugin-astro'
 import config from '../../src/astro.js'
 
 const pluginEntry = ['plugins', {}]
-const availableOptions = new Map([
-	pluginEntry,
-	...Object.entries(options)
-])
+const availableOptions = new Map([pluginEntry, ...Object.entries(options)])
 
 test('Config should load', () => {
 	expect(() =>
