@@ -1,19 +1,15 @@
-import tseslint from 'typescript-eslint'
 import sveltePlugin from 'eslint-plugin-svelte'
 import svelteParser from 'svelte-eslint-parser'
 
 export default {
 	name: '@klnjs/svelte',
-	files: ['**/*.svelte', '**/*.svelte.js', '**/*.svelte.ts'],
+	files: ['**/*.svelte'],
 	processor: 'svelte/svelte',
 	plugins: {
 		svelte: sveltePlugin
 	},
 	languageOptions: {
-		parser: svelteParser,
-		parserOptions: {
-			parser: tseslint.parser
-		}
+		parser: svelteParser
 	},
 	rules: {
 		// The following builtin rules are known to cause problems with `.svelte`.
