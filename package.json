@@ -8,7 +8,7 @@
 		"type": "git",
 		"url": "git+ssh://git@github.com/klnjs/configs.git"
 	},
-	"packageManager": "bun@1.1.25",
+	"packageManager": "bun@1.1.26",
 	"workspaces": ["packages/**/*"],
 	"scripts": {
 		"test": "turbo test",
@@ -16,7 +16,7 @@
 		"format": "turbo format"
 	},
 	"devDependencies": {
-		"@types/bun": "1.1.6",
-		"turbo": "2.0.14"
+		"@types/bun": "1.1.8",
+		"turbo": "2.1.1"
 	}
 }

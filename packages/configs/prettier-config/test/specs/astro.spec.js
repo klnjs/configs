@@ -1,7 +1,7 @@
 import { test, expect } from 'bun:test'
 import prettier from 'prettier'
-import { options } from 'prettier-plugin-svelte'
-import config from '../../src/svelte.js'
+import { options } from 'prettier-plugin-astro'
+import config from '../../src/astro.js'
 
 const pluginEntry = ['plugins', {}]
 const availableOptions = new Map([
@@ -11,7 +11,7 @@ const availableOptions = new Map([
 
 test('Config should load', () => {
 	expect(() =>
-		prettier.format('', { filepath: 'file.svelte', ...config })
+		prettier.format('', { filepath: 'file.astro', ...config })
 	).not.toThrow()
 })
 

@@ -12,7 +12,9 @@
 	"keywords": ["prettier", "prettier-config"],
 	"files": ["src/**/*", "LICENSE", "README.md"],
 	"exports": {
-		"./core": "./src/core.js"
+		"./core": "./src/core.js",
+		"./astro": "./src/astro.js",
+		"./svelte": "./src/svelte.js"
 	},
 	"scripts": {
 		"test": "bun test --preload ./test/helpers/setup.js",
@@ -23,6 +25,7 @@
 		"@klnjs/configs-internals-test": "workspace:*",
 		"@biomejs/biome": "1.8.3",
 		"prettier": "3.3.3",
+		"prettier-plugin-astro": "0.14.1",
 		"prettier-plugin-svelte": "3.2.6"
 	},
 	"peerDependencies": {

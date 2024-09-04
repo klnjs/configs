@@ -10,8 +10,7 @@ export default {
 		parser: tseslint.parser,
 		parserOptions: {
 			projectService: true,
-			tsconfigRootDir: import.meta.dirname,
-			extraFileExtensions: ['.svelte']
+			tsconfigRootDir: import.meta.dirname
 		}
 	},
 	rules: {
