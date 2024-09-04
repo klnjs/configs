@@ -9,7 +9,7 @@ export default {
 		svelte: sveltePlugin
 	},
 	languageOptions: {
-		parser: svelteParser,
+		parser: svelteParser
 	},
 	rules: {
 		// The following builtin rules are known to cause problems with `.svelte`.
