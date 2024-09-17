@@ -2,7 +2,7 @@
 	"name": "@klnjs/eslint-config",
 	"type": "module",
 	"author": "Rune Klein (@rnkln)",
-	"version": "3.2.0",
+	"version": "3.2.1",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
