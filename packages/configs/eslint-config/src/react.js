@@ -10,7 +10,7 @@ export default {
 		react: reactPlugin,
 		'react-hooks': reactHooksPlugin,
 		'react-compiler': reactCompilerPlugin,
-		'jsx-a11y': jsxA11yPlugin 
+		'jsx-a11y': jsxA11yPlugin
 	},
 	settings: {
 		react: {
@@ -181,6 +181,6 @@ export default {
 		'jsx-a11y/role-has-required-aria-props': 'error',
 		'jsx-a11y/role-supports-aria-props': 'error',
 		'jsx-a11y/scope': 'error',
-		'jsx-a11y/tabindex-no-positive': 'error',
+		'jsx-a11y/tabindex-no-positive': 'error'
 	}
 }

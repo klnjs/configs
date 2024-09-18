@@ -25,7 +25,7 @@
 	},
 	"dependencies": {
 		"eslint-plugin-jsx-a11y": "6.10.0",
-		"eslint-plugin-react-compiler": "0.0.0-experimental-8e3b87c-20240822",
+		"eslint-plugin-react-compiler": "0.0.0-experimental-ca16900-20240916",
 		"eslint-plugin-react-hooks": "4.6.2",
 		"eslint-plugin-react": "7.36.1",
 		"eslint-plugin-svelte": "2.44.0",
