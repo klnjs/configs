@@ -1,5 +1,5 @@
 import { test, expect } from 'bun:test'
-import typescriptPlugin from '@typescript-eslint/eslint-plugin'
+import tseslint from 'typescript-eslint'
 import {
 	createESLint,
 	getAvailableCoreRules,
@@ -47,26 +47,23 @@ test('Config should include obsolete core rules and turn them off', () =>
 		'no-unreachable',
 		'no-unsafe-negation',
 		'valid-typeof',
-		...Object.entries(typescriptPlugin.rules).reduce(
-			(acc, [name, rule]) => {
-				if (!isExtensionRule(rule) || !isDeprecatedRule(rule)) {
-					return acc
-				}
-
-				const base = rule.meta.docs.extendsBaseRule
-				const baseName = base === true ? name : base
-				const baseRule = availableCoreRules.get(baseName)
-
-				if (!isDeprecatedRule(baseRule)) {
-					return acc
-				}
-
-				acc.push(baseName)
-
+		...Object.entries(tseslint.plugin.rules).reduce((acc, [name, rule]) => {
+			if (!isExtensionRule(rule) || !isDeprecatedRule(rule)) {
 				return acc
-			},
-			[]
-		)
+			}
+
+			const base = rule.meta.docs.extendsBaseRule
+			const baseName = base === true ? name : base
+			const baseRule = availableCoreRules.get(baseName)
+
+			if (!isDeprecatedRule(baseRule)) {
+				return acc
+			}
+
+			acc.push(baseName)
+
+			return acc
+		}, [])
 	].forEach((name) => {
 		expect(configuredCoreRules).toHaveEntry(name, 'off')
 	}))
