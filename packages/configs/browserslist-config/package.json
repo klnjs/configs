@@ -2,7 +2,7 @@
 	"name": "@klnjs/browserslist-config",
 	"type": "module",
 	"author": "Rune Klein (@rnkln)",
-	"version": "3.2.1",
+	"version": "3.2.2",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
@@ -21,7 +21,7 @@
 		"format": "biome format --error-on-warnings ."
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.8.3",
+		"@biomejs/biome": "1.9.1",
 		"browserslist": "4.23.3"
 	}
 }

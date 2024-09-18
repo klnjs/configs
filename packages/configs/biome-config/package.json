@@ -2,7 +2,7 @@
 	"name": "@klnjs/biome-config",
 	"type": "module",
 	"author": "Rune Klein (@rnkln)",
-	"version": "3.2.1",
+	"version": "3.2.2",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
@@ -20,12 +20,12 @@
 		"format": "biome format --error-on-warnings ."
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.8.3",
+		"@biomejs/biome": "1.9.1",
 		"@biomejs/js-api": "0.6.2",
-		"@biomejs/wasm-nodejs": "1.8.3",
+		"@biomejs/wasm-nodejs": "1.9.1",
 		"ajv": "8.17.1"
 	},
 	"peerDependencies": {
-		"@biomejs/biome": "^1.8.0"
+		"@biomejs/biome": "^1.9.0"
 	}
 }

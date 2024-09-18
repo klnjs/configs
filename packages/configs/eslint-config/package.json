@@ -2,7 +2,7 @@
 	"name": "@klnjs/eslint-config",
 	"type": "module",
 	"author": "Rune Klein (@rnkln)",
-	"version": "3.2.1",
+	"version": "3.2.2",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
@@ -26,15 +26,15 @@
 	"dependencies": {
 		"eslint-plugin-react-compiler": "0.0.0-experimental-8e3b87c-20240822",
 		"eslint-plugin-react-hooks": "4.6.2",
-		"eslint-plugin-react": "7.35.0",
-		"eslint-plugin-svelte": "2.43.0",
-		"typescript-eslint": "8.2.0",
-		"svelte-eslint-parser": "0.41.0"
+		"eslint-plugin-react": "7.36.1",
+		"eslint-plugin-svelte": "2.44.0",
+		"typescript-eslint": "8.6.0",
+		"svelte-eslint-parser": "0.41.1"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.8.3",
+		"@biomejs/biome": "1.9.1",
 		"@klnjs/configs-internals-test": "workspace:*",
-		"eslint": "9.9.0",
+		"eslint": "9.10.0",
 		"react": "18.3.1",
 		"svelte": "4.2.19"
 	},

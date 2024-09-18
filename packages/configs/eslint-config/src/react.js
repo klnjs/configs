@@ -34,6 +34,7 @@ export default {
 		'react/forbid-elements': 'off',
 		'react/forbid-foreign-prop-types': 'error',
 		'react/forbid-prop-types': 'off',
+		'react/forward-ref-uses-ref': 'error',
 		'react/function-component-definition': 'off',
 		'react/hook-use-state': 'error',
 		'react/iframe-missing-sandbox': 'off',
