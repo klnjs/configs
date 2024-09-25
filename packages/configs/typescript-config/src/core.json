@@ -21,10 +21,11 @@
 		"noUnusedParameters": true,
 		"outDir": "${configDir}/dist",
 		"resolveJsonModule": true,
-		"rootDir": ".",
+		"rootDir": "${configDir}",
 		"skipLibCheck": true,
 		"strict": true,
 		"stripInternal": true,
+		"tsBuildInfoFile": "${configDir}/.tsbuildinfo",
 		"useUnknownInCatchVariables": true,
 		"verbatimModuleSyntax": true
 	}
