@@ -21,12 +21,14 @@
 		"lint": "biome lint --error-on-warnings .",
 		"format": "biome format --error-on-warnings ."
 	},
-	"devDependencies": {
-		"@klnjs/configs-internals-test": "workspace:*",
-		"@biomejs/biome": "1.9.1",
-		"prettier": "3.3.3",
+	"dependencies": {
 		"prettier-plugin-astro": "0.14.1",
 		"prettier-plugin-svelte": "3.2.6"
+	},
+	"devDependencies": {
+		"@klnjs/configs-internals-test": "workspace:*",
+		"@biomejs/biome": "1.9.2",
+		"prettier": "3.3.3"
 	},
 	"peerDependencies": {
 		"prettier": "^3.0.0"
