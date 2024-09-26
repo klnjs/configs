@@ -1,15 +1,23 @@
+// biome-ignore lint/style/noNamespaceImport: espree is export only as a namespace
+import * as espree from 'espree'
+import tseslint from 'typescript-eslint'
 import sveltePlugin from 'eslint-plugin-svelte'
 import svelteParser from 'svelte-eslint-parser'
 
 export default {
 	name: '@klnjs/svelte',
 	files: ['**/*.svelte'],
-	processor: 'svelte/svelte',
 	plugins: {
 		svelte: sveltePlugin
 	},
 	languageOptions: {
-		parser: svelteParser
+		parser: svelteParser,
+		parserOptions: {
+			parser: {
+				js: espree,
+				ts: tseslint.parser
+			}
+		}
 	},
 	rules: {
 		// The following builtin rules are known to cause problems with `.svelte`.

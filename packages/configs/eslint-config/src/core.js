@@ -1,6 +1,12 @@
+// biome-ignore lint/style/noNamespaceImport: espree is export only as a namespace
+import * as espree from 'espree'
+
 export default {
 	name: '@klnjs/core',
-	files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
+	files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx', '**/*.svelte'],
+	languageOptions: {
+		parser: espree
+	},
 	rules: {
 		'accessor-pairs': 'off',
 		'array-callback-return': [
