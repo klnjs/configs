@@ -261,7 +261,7 @@ export default {
 		'operator-assignment': 'off',
 		'prefer-arrow-callback': 'off',
 		'prefer-const': 'error',
-		'prefer-destructuring': 'error',
+		'prefer-destructuring': 'off',
 		'prefer-exponentiation-operator': 'error',
 		'prefer-named-capture-group': 'off',
 		'prefer-numeric-literals': 'error',

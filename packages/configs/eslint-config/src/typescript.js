@@ -73,11 +73,8 @@ export default {
 		'@typescript-eslint/consistent-return': 'off',
 		'@typescript-eslint/consistent-type-assertions': 'error',
 		'@typescript-eslint/consistent-type-definitions': ['error', 'type'],
-		'@typescript-eslint/consistent-type-exports': 'error',
-		'@typescript-eslint/consistent-type-imports': [
-			'error',
-			{ fixStyle: 'inline-type-imports' }
-		],
+		'@typescript-eslint/consistent-type-exports': 'off',
+		'@typescript-eslint/consistent-type-imports': 'off',
 		'@typescript-eslint/default-param-last': 'error',
 		'@typescript-eslint/dot-notation': 'error',
 		'@typescript-eslint/explicit-function-return-type': 'off',
@@ -167,7 +164,7 @@ export default {
 		'@typescript-eslint/only-throw-error': 'error',
 		'@typescript-eslint/parameter-properties': 'error',
 		'@typescript-eslint/prefer-as-const': 'error',
-		'@typescript-eslint/prefer-destructuring': 'error',
+		'@typescript-eslint/prefer-destructuring': 'off',
 		'@typescript-eslint/prefer-enum-initializers': 'error',
 		'@typescript-eslint/prefer-find': 'error',
 		'@typescript-eslint/prefer-for-of': 'off',
