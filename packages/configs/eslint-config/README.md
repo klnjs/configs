@@ -24,16 +24,18 @@ export default [core]
 
 If you're using mutliple configurations, many configs provide extension rules that checks more thoroughly and therefore disables ESLint's built-in rule. Always make sure the extended configs are included after the core config or any other base ESLint configs.
 
+When using frameworks, you should include them after both core and typescript, due to how parsers need to be overriden to handle proprietary file types, e.g. `.svelte`.
+
 ```js
 import core from '@klnjs/eslint-config/core'
+import typescript from '@klnjs/eslint-config/typescript'
 import react from '@klnjs/eslint-config/react'
 import svelte from '@klnjs/eslint-config/svelte'
-import typescript from '@klnjs/eslint-config/typescript'
 
-export default [core, react, svelte, typescript]
+export default [core, typescript, react, svelte]
 ```
 
-Configurations only support the expected file types, if you want to include custom file types eg. `.mtsx`, you'll need to add them yourself by adjusting the 'files' property in the configurations.
+Configurations only support the most common file types, if you want to include custom file types eg. `.mtsx`, you'll need to add them yourself by adjusting the 'files' property in the configurations.
 
 They also don't assume specific environments, so they don't set up `languageOptions.globals`. In most cases, you'll likely need to configure some properties yourself.
 

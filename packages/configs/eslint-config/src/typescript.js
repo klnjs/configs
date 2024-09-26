@@ -2,7 +2,7 @@ import tseslint from 'typescript-eslint'
 
 export default {
 	name: '@klnjs/typescript',
-	files: ['**/*.ts', '**/*.tsx'],
+	files: ['**/*.ts', '**/*.tsx', '**/*.svelte'],
 	plugins: {
 		'@typescript-eslint': tseslint.plugin
 	},
@@ -10,7 +10,8 @@ export default {
 		parser: tseslint.parser,
 		parserOptions: {
 			projectService: true,
-			tsconfigRootDir: import.meta.dirname
+			tsconfigRootDir: import.meta.dirname,
+			extraFileExtensions: ['.svelte']
 		}
 	},
 	rules: {

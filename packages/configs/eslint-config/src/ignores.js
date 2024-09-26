@@ -6,10 +6,10 @@ export default {
 		'.next',
 		'.svelte-kit',
 		'.turbo',
+		'.vercel',
 		'build',
 		'coverage',
 		'dist',
-		'node_modules',
-		'node'
+		'node_modules'
 	]
 }
