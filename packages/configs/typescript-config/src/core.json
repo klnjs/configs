@@ -7,7 +7,6 @@
 		"allowUnusedLabels": false,
 		"downlevelIteration": false,
 		"forceConsistentCasingInFileNames": true,
-		"isolatedDeclarations": true,
 		"isolatedModules": true,
 		"jsx": "react-jsx",
 		"noEmit": true,
@@ -25,7 +24,6 @@
 		"skipLibCheck": true,
 		"strict": true,
 		"stripInternal": true,
-		"tsBuildInfoFile": "${configDir}/.tsbuildinfo",
 		"useUnknownInCatchVariables": true,
 		"verbatimModuleSyntax": true
 	}
