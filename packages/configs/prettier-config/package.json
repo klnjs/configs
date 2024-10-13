@@ -23,11 +23,11 @@
 	},
 	"dependencies": {
 		"prettier-plugin-astro": "0.14.1",
-		"prettier-plugin-svelte": "3.2.6"
+		"prettier-plugin-svelte": "3.2.7"
 	},
 	"devDependencies": {
 		"@klnjs/configs-internals-test": "workspace:*",
-		"@biomejs/biome": "1.9.2",
+		"@biomejs/biome": "1.9.3",
 		"prettier": "3.3.3"
 	},
 	"peerDependencies": {
