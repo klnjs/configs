@@ -37,7 +37,7 @@ export const getConfiguredPluginRules = (config) => {
 
 export const isLayoutRule = (rule) => rule.meta.type === 'layout'
 
-export const isDeprecatedRule = (rule) => rule.meta.deprecated
+export const isDeprecatedRule = (rule) => Boolean(rule.meta.deprecated)
 
 export const isExtensionRule = (rule) => {
 	// Typescript eslint extension rule
