@@ -1,6 +1,8 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
 	"extends": [
+		":semanticCommits",
+		":semanticCommitScopeDisabled",
 		":dependencyDashboard",
 		":disableMajorUpdates",
 		":ignoreModulesAndTests",
@@ -12,7 +14,6 @@
 		"replacements:all"
 	],
 	"description": "@klnjs base renovate config",
-	"commitMessagePrefix": "⬆️ Renovate - ",
 	"lockFileMaintenance": {
 		"commitMessageAction": "Update",
 		"extends": ["group:all"]
