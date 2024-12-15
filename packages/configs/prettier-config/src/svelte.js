@@ -1,7 +1,8 @@
 export default {
 	plugins: ['prettier-plugin-svelte'],
-	svelteSortOrder: 'options-scripts-markup-styles',
+	svelte5CompilerPath: '', // This is not mentioned in docs...
 	svelteStrictMode: true,
+	svelteSortOrder: 'options-scripts-markup-styles',
 	svelteAllowShorthand: true,
 	svelteIndentScriptAndStyle: true
 }
