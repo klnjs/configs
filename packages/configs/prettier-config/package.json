@@ -23,7 +23,7 @@
 	},
 	"dependencies": {
 		"prettier-plugin-astro": "0.14.1",
-		"prettier-plugin-svelte": "3.3.2"
+		"prettier-plugin-svelte": "3.3.3"
 	},
 	"devDependencies": {
 		"@klnjs/configs-internals-test": "workspace:*",

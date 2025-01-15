@@ -16,7 +16,7 @@
 		"format": "turbo format"
 	},
 	"devDependencies": {
-		"@types/bun": "1.1.14",
+		"@types/bun": "1.1.16",
 		"turbo": "2.3.3"
 	}
 }
