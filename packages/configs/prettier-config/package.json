@@ -2,7 +2,7 @@
 	"name": "@klnjs/prettier-config",
 	"type": "module",
 	"author": "Rune Klein (@rnkln)",
-	"version": "4.3.0",
+	"version": "4.4.0",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
@@ -23,7 +23,7 @@
 	},
 	"dependencies": {
 		"prettier-plugin-astro": "0.14.1",
-		"prettier-plugin-svelte": "3.3.2"
+		"prettier-plugin-svelte": "3.3.3"
 	},
 	"devDependencies": {
 		"@klnjs/configs-internals-test": "workspace:*",
