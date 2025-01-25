@@ -70,7 +70,10 @@ export default {
 		'@typescript-eslint/class-literal-property-style': 'error',
 		'@typescript-eslint/class-methods-use-this': 'error',
 		'@typescript-eslint/consistent-generic-constructors': 'error',
-		'@typescript-eslint/consistent-indexed-object-style': 'error',
+		'@typescript-eslint/consistent-indexed-object-style': [
+			'error',
+			'index-signature'
+		],
 		'@typescript-eslint/consistent-return': 'off',
 		'@typescript-eslint/consistent-type-assertions': 'error',
 		'@typescript-eslint/consistent-type-definitions': ['error', 'type'],
